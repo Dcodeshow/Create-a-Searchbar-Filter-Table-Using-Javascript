@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>D CODE SHOW</title>
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <div class="form-group">
+      <label for="email">Search </label>
+      <input
+        id="inputvalue"
+        type="text"
+        class="form-control"
+        placeholder="Search For Name"
+        onkeyup="filterfunction()"
+      />
+    </div>
+    <table id="table" class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John</td>
+          <td>Doe</td>
+          <td>john@example.com</td>
+        </tr>
+        <tr>
+          <td>Mary</td>
+          <td>Moe</td>
+          <td>mary@example.com</td>
+        </tr>
+        <tr>
+          <td>July</td>
+          <td>Dooley</td>
+          <td>july@example.com</td>
+        </tr>
+        <tr>
+          <td>Micheal</td>
+          <td>Bott</td>
+          <td>micheal@example.com</td>
+        </tr>
+        <tr>
+          <td>Charle</td>
+          <td>Angel</td>
+          <td>charle@example.com</td>
+        </tr>
+      </tbody>
+    </table>
+    <script>
+      function filterfunction() {
+        let inputvalue = document
+          .getElementById("inputvalue")
+          .value.toUpperCase();
+
+        let table = document.getElementById("table");
+        let tr = table.getElementsByTagName("tr");
+        for (let i = 0; i < tr.length; i++) {
+          let td = tr[i].getElementsByTagName("td")[0];
+          if (td) {
+            let tdval =
+              td.innerHTML.toUpperCase() || td.innerText.toUpperCase();
+            if (tdval.indexOf(inputvalue) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          }
+        }
+      }
+
+      let ab = "Latest compiled and minified CSS";
+      let abc = ab.indexOf("compiledxx") > -1;
+      console.log(abc);
+    </script>
+  </body>
+</html>
